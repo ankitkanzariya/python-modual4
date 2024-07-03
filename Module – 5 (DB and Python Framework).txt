@@ -1,0 +1,91 @@
+1...    Why Django should be used for web-development? Explain how you
+can create a project in Django?
+
+>faster development
+>security
+>scalibility
+>large community
+
+    ---create Django project steps:
+
+        1.install python from  https://www.python.org/downloads/. 
+        2.install Django in CMD: pip install Django
+        3.start a new project: django-admin startproject myproject .
+        4.navigate to project dictionary: cd myproject
+        5.run the devlopment server: python manage.py runserver
+
+his will start the server at http://127.0.0.1:8000/ by default. You can visit this URL in your web browser to see your Django project up and running!
+
+-------------------------------------------------------------------
+
+2...    How to check installed version of django?
+
+These methods use the command line to check the version:    
+    1. python -m django --version
+    2. django-admin --version
+    3. python manage.py --version
+    4. pip freeze | grep Django
+
+
+-------------------------------------------------------------------
+
+3...    Explain what does django-admin.py make messages command is used for?
+
+The django-admin.py makemessages command is used to prepare your Django project for translation into different languages. Here's a breakdown of its functionality:
+
+        1. Scans for translatable strings: It scans your project's source code (templates, Python files) for text marked for translation using functions like gettext or lazy.
+        2. Creates/Updates message files: Based on the scanned strings, it creates or updates message files (.po files) in the locale directory of your project or application.
+        3. Prepares for translation: These message files contain the translatable strings along with their context (like filename and line number) but without the actual translations. Translators can then use these files to provide translations for different languages.
+
+-------------------------------------------------------------------
+
+4...    What is Django URLs?make program to create django urls?
+
+In Django, URLs serve as the foundation for routing incoming web requests to the appropriate view functions. These functions handle the request logic and return the corresponding response (usually an HTML template). Here's a breakdown:
+
+    1. URLconf (URL Configuration): This is a Python module (typically named urls.py) that defines the mapping between URL patterns and view functions. It acts as a roadmap for Django to find the right view for each request.
+    2. URL Patterns: These are strings that represent different URL paths on your website. They can include placeholders denoted by <identifier>, which capture dynamic parts of the URL.
+    3. View Functions: These are Python functions that handle incoming requests. They process any data sent with the request (like form data) and generate the appropriate response, usually by rendering an HTML template.
+
+-------------------------------------------------------------------
+
+5...     What is a QuerySet?Write program to create a new Post object in database:
+
+A QuerySet represents a collection of database objects from your Django model. It acts like a powerful filter that allows you to retrieve, modify, and interact with these objects efficiently.
+
+from django.shortcuts import render, redirect  # for handling HTTP requests (optional)
+
+# Import your Post model
+from .models import Post  # Assuming your Post model is in the same app
+
+def create_post(request):
+    if request.method == 'POST':
+        title = request.POST.get('title')
+        content = request.POST.get('content')
+        new_post = Post(title=title, content=content)
+        new_post.save()
+        return redirect('success_url')  
+    else:
+        return render(request, 'create_post.html')
+
+-------------------------------------------------------------------
+
+6...     Mention what command line can be used to load data into Django?
+
+        > python manage.py loaddata <fixture_name>
+
+Replace <fixture_name> with the actual name of your fixture file.
+
+Fixture files are typically JSON, YAML, or XML files that represent model instances in a structured format. You can create them manually or use tools like dumpdata to generate them from your existing database content.
+
+-------------------------------------------------------------------
+
+7...     Explain what does django-admin.py make messages command is used for?
+
+The django-admin.py makemessages command is an essential tool in Django for preparing your project for translation into multiple languages. Here's a breakdown of its functionality:
+
+    > Scans for Translatable Strings:
+    > Creates/Updates Message Files:
+    > Prepares for Translation:
+
+-------------------------------------------------------------------
