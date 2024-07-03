@@ -1,0 +1,382 @@
+1...    Write a Python program to check if a number is positive, negative or zero.
+
+def check_number(number):
+ 
+
+  if number > 0:
+    print("The number is positive.")
+  elif number < 0:
+    print("The number is negative.")
+  else:
+    print("The number is zero.")
+
+number = float(input("Enter a number: "))
+check_number(number)
+
+--------------------------------------------------------------------------------
+
+2...    Write a Python program to get the Factorial number of given number
+
+def factorial(n):
+if n < 0:
+    raise ValueError("Factorial is not defined for negative numbers")
+  elif n == 0:
+    return 1
+  else:
+    result = 1
+    for i in range(1, n + 1):
+      result *= i
+    return result
+
+number = int(input("Enter a non-negative integer: "))
+try:
+  fact = factorial(number)
+  print("The factorial of", number, "is", fact)
+except ValueError as e:
+  print(e)
+
+-------------------------------------------------------------------------------
+
+3...    Write a Python program to get the Fibonacci series of given range.
+
+def fibonacci(n):
+if n < 0:
+    return []  # Handle negative input (empty list)
+  elif n == 0:
+    return [0]  # Base case for n=0 (list containing only 0)
+  elif n == 1:
+    return [0, 1]  # Base case for n=1 (list containing 0 and 1)
+  else:
+    # Initialize the first two numbers
+    fib_series = [0, 1]
+    # Generate the Fibonacci series iteratively
+    for i in range(2, n + 1):
+      next_num = fib_series[i - 1] + fib_series[i - 2]
+      fib_series.append(next_num)
+    return fib_series
+
+upper_limit = int(input("Enter the upper limit for the Fibonacci series: "))
+
+fibonacci_series = fibonacci(upper_limit)
+print("Fibonacci series up to", upper_limit, ":", fibonacci_series)
+
+----------------------------------------------------------------------------
+
+4...    How memory is managed in Python?
+
+    Python uses a combination of techniques for memory management, relieving you from manually allocating and freeing memory like in some other languages. Here's a breakdown of the key aspects: 
+    >autamatic memory management
+    >private heap
+    >refrance couting
+    >garbage collector
+    >additional techniques
+    
+-------------------------------------------------------------------
+
+5...    What is the purpose continue statement in python?
+
+    The continue statement in Python is used for loop control within for and while loops. It's specifically designed to skip the remaining part of the current iteration and immediately jump to the start of the next iteration.
+
+-------------------------------------------------------------------
+
+6...    Write python program that swap two number with temp variable and without temp variable.
+
+def swap_with_temp(x, y):
+  temp = x
+  x = y
+  y = temp
+  return x, y
+
+# Get numbers from the user
+num1 = int(input("Enter the first number: "))
+num2 = int(input("Enter the second number: "))
+
+# Swap the numbers using the function
+swapped_num1, swapped_num2 = swap_with_temp(num1, num2)
+
+# Print the swapped numbers
+print("After swapping:")
+print("The first number is:", swapped_num1)
+print("The second number is:", swapped_num2)
+
+-------------------------------------------------------------------
+
+7...    Write a Python program to find whether a given number is even or odd, print out an appropriate message to the user.
+
+def check_even_odd(number):
+  if number % 2 == 0:
+    print("The number", number, "is even.")
+  else:
+    print("The number", number, "is odd.")
+
+# Get the number from the user
+number = int(input("Enter a number: "))
+
+# Call the function to check even or odd
+check_even_odd(number)
+
+-------------------------------------------------------------------
+
+8...    Write a Python program to test whether a passed letter is a vowel or not.
+
+def is_vowel(letter):
+  vowels = "aeiouAEIOU"  # String containing all uppercase and lowercase vowels
+  return letter in vowels
+
+# Get the letter from the user
+letter = input("Enter a letter: ")
+
+# Check if the letter is a vowel (case-insensitive)
+if is_vowel(letter):
+  print(letter, "is a vowel.")
+else:
+  print(letter, "is not a vowel.")
+
+------------------------------------------------------------------
+
+9...    Write a Python program to sum of three given integers. However, if two values are equal sum will be zero.
+
+
+def sum_with_zero_if_equal(num1, num2, num3):
+  # Check if any two values are equal using set comparison
+  if len(set([num1, num2, num3])) != 3:
+    return 0
+  else:
+    return num1 + num2 + num3
+
+# Get three numbers from the user
+num1 = int(input("Enter the first number: "))
+num2 = int(input("Enter the second number: "))
+num3 = int(input("Enter the third number: "))
+
+# Calculate the sum using the function
+total_sum = sum_with_zero_if_equal(num1, num2, num3)
+
+# Print the result
+if total_sum == 0:
+  print("The sum is zero because two of the numbers are equal.")
+else:
+  print("The sum of the three numbers is:", total_sum)
+
+-------------------------------------------------------------------
+
+10...   Write a Python program that will return true if the two given integer values are equal or their sum or difference is 5.
+
+def two_integer_condition(x, y):
+
+return x == y or abs(x - y) == 5  # Use abs() for absolute difference
+
+# Get two numbers from the user
+num1 = int(input("Enter the first number: "))
+num2 = int(input("Enter the second number: "))
+
+# Check the condition using the function
+condition_met = two_integer_condition(num1, num2)
+
+# Print the result
+if condition_met:
+  print("True - The two numbers satisfy the condition.")
+else:
+  print("False - The two numbers do not satisfy the condition.")
+
+-------------------------------------------------------------------
+
+11...   Write a python program to sum of the first n positive integers.
+
+def sum_of_n_integers(n):
+  if n <= 0:
+    raise ValueError("n must be a positive integer")
+  
+-----------------------------------------------------------------
+
+12...   Write a Python program to calculate the length of a string.
+
+def string_length(text):
+  return len(text)
+
+text = input("Enter a string: ")
+length = string_length(text)
+print("The length of the string is:", length)
+
+-------------------------------------------------------------------
+
+13...   Write a Python program to count the number of characters (character frequency) in a string.
+
+def count_characters(text):
+  char_counts = {} 
+  for char in text: 
+    if char not in char_counts:
+      char_counts[char] = 0  # Initialize count for new characters
+    char_counts[char] += 1  # Increment count for existing characters
+  return char_counts
+
+text = input("Enter a string: ")
+
+char_frequency = count_characters(text)
+
+print("Character frequency:")
+for char, count in char_frequency.items():
+  print(f"{char}: {count}")
+
+-------------------------------------------------------------------
+
+14...   What are negative indexes and why are they used?
+
+Negative indexes in Python (and some other programming languages) are a way to access elements of a sequence (like lists, strings, or tuples) by counting from the end. Here's a breakdown of their concept and usage: 
+
+    >Accessing last element easily
+    >slicing from the end
+    >iterating backwards
+    >conciness and readability
+
+my_list = ["apple", "banana", "cherry", "orange"]
+
+# Accessing the last element
+last_fruit = my_list[-1]  # last_fruit will be "orange"
+
+# Slicing from the end
+last_two_fruits = my_list[-2:]  # last_two_fruits will be ["cherry", "orange"]
+
+# Iterating backwards (not recommended for common use cases)
+for fruit in my_list[::-1]:
+  print(fruit)  # Prints "orange", "cherry", "banana", "apple"
+
+-------------------------------------------------------------------
+
+15...   Write a Python program to count occurrences of a substring in a string.
+
+def count_substring(text, substring):
+  return text.count(substring)
+
+# Get the string and substring from the user
+text = input("Enter a string: ")
+substring = input("Enter the substring to count: ")
+
+# Count occurrences using the function
+count = count_substring(text, substring)
+
+# Print the result
+print("The number of occurrences of", substring, "in", text, "is:", count)
+
+-------------------------------------------------------------------
+
+16...   Write a Python program to count the occurrences of each word in a given sentence.
+
+def count_word_occurrences(sentence):
+  # Split the sentence into words, converting them to lowercase for case-insensitive counting
+  words = sentence.lower().split()
+
+  # Initialize an empty dictionary to store word counts
+  word_counts = {}
+  for word in words:
+    if word in word_counts:
+      word_counts[word] += 1  # Increment count for existing words
+    else:
+      word_counts[word] = 1  # Initialize count for new words
+
+  return word_counts
+
+# Get the sentence from the user
+sentence = input("Enter a sentence: ")
+
+# Count word occurrences using the function
+word_counts = count_word_occurrences(sentence)
+
+# Print the word counts
+print("Word counts:")
+for word, count in word_counts.items():
+  print(f"{word}: {count}")
+
+-------------------------------------------------------------------
+
+17...   Write a Python program to get a single string from two given strings, separated by a space and swap the first two characters of each string.
+
+def combine_and_swap_strings(str1, str2):
+  # Check if strings are empty
+  if not str1 or not str2:
+    return "Please provide two non-empty strings."  # Handle empty strings
+
+  # Swap the first two characters of each string
+  swapped_str1 = str2[:2] + str1[2:]
+  swapped_str2 = str1[:2] + str2[2:]
+
+  # Combine and return the swapped strings with a space
+  return swapped_str1 + " " + swapped_str2
+
+# Get two strings from the user
+str1 = input("Enter the first string: ")
+str2 = input("Enter the second string: ")
+
+# Combine and swap strings using the function
+combined_string = combine_and_swap_strings(str1, str2)
+
+# Print the result
+print("Combined string with swapped first two characters:", combined_string)
+
+-------------------------------------------------------------------
+
+18...   Write a Python program to add 'ing' at the end of a given string (length should be at least 3). If the given string already ends with 'ing' then add 'ly' instead if the string length of the given string is less than 3, leave it unchanged.
+
+def add_suffix(text):
+  if len(text) < 3:
+    return text
+  if text[-3:] == "ing":
+    return text + "ly"
+  else:
+    return text + "ing"
+
+text = input("Enter a string: ")
+modified_text = add_suffix(text)
+
+print("Modified string:", modified_text)
+
+
+-------------------------------------------------------------------
+
+19...   • Write a Python program to find the first appearance of the substring 'not' and 'poor' from a given string, if 'not' follows the 'poor', replace the whole 'not'...'poor' substring with 'good'. Return the resulting string.
+
+def replace_not_poor(text):
+  not_index = text.find("not")
+  if not_index == -1:  # Check if 'not' is not found
+    return text
+  if not_index + 3 < len(text) and text[not_index + 3] == " ":  
+    return text[:not_index] + "good" + text[not_index + 7:] 
+  else:
+    return text
+
+text = input("Enter a string: ")
+modified_text = replace_not_poor(text)
+print("Modified string:", modified_text)
+
+
+-------------------------------------------------------------------
+
+20...   Write a Python function that takes a list of words and returns the length of the longest one.
+
+def find_longest_word(words):
+  longest_length = 0
+  for word in words:
+    word_length = len(word)
+    if word_length > longest_length:
+      longest_length = word_length
+
+  return longest_length
+
+
+-------------------------------------------------------------------
+
+21...   Write a Python function to reverses a string if its length is a multiple of 4.
+
+def reverse_string_if_multiple_of_four(text):
+  if len(text) % 4 == 0:
+    return text[::-1]
+  else:
+    return text
+
+text = input("Enter a string: ")
+reversed_text = reverse_string_if_multiple_of_four(text)
+
+print("Reversed string (if length is a multiple of 4):", reversed_text)
+
+
+
